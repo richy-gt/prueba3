@@ -8,7 +8,8 @@ def menuf():
     print("2. Buscar Estudiante")
     print("3. Calcular el promedio de un estudiante")
     print("4. Mostrar todos los estudiantes registrados")
-    print("5. Salir del programa")
+    print("5. Eliminar un Estudiante")
+    print("6. Salir del programa")
     print("------------------------------")
 
 def calcular_promedio(estudiante):
@@ -96,7 +97,23 @@ while True:
             for estudiante in notestudiante:
                 print(f"Nombre: {estudiante['nombre estudiante']}, Apellido: {estudiante['apellido estudiante']}, Nota Historia: {estudiante['nota historia']}, Nota Ciencias: {estudiante['nota ciencias']}, Nota Matematicas: {estudiante['nota matematicas']},")
                 calcular_promedio(estudiante)
+
+
     elif menu == 5:
+
+        descripcion_eliminar = input("Ingrese el estudiante a eliminar: ")
+        
+        encontrado = False
+        for estudiante in notestudiante:
+            if estudiante["nombre estudiante"] == descripcion_eliminar:
+                notestudiante.remove(estudiante)
+                print(f"Estudiante '{descripcion_eliminar}' eliminado.")
+                encontrado = True
+        
+        if not encontrado:
+            print(f"No se encontró ningún estudiante con la descripción '{descripcion_eliminar}'.")
+
+    elif menu == 6:
         print("Saliendo del programa...")
         break
 
